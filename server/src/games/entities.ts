@@ -5,7 +5,8 @@ import { IsString } from 'class-validator';
 export type BoardSymbol =  'o'
 export type PlayerSymbol = 'p1' | 'p2' | 'p3' | 'p4'
 export type Bug = 'bug'
-export type Row = [ BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug, BoardSymbol | PlayerSymbol | Bug ]
+export type Explosion = Bug | PlayerSymbol | BoardSymbol | 'exp'
+export type Row = [ BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion, BoardSymbol | PlayerSymbol | Bug | Explosion]
 export type Board = [ Row, Row, Row, Row, Row, Row, Row, Row, Row, Row ]
 
 type Status = 'pending' | 'started' | 'finished'
