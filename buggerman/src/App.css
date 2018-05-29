@@ -1,28 +1,34 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.board-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 520px;
+  max-width: 520px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.tile {
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid #abc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.App-title {
-  font-size: 1.5em;
+.tile-empty {
+  background-color: #def;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.tile-player {
+  background-color: #fed;
 }
