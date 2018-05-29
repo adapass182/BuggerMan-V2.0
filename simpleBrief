@@ -1,0 +1,52 @@
+BuggerMan
+
+Concept:
+
+	- Drops bugs not bombs.
+	- Each player is a codaisseur student trying to complete homework.
+	- Each player is trying to beat the other player by dropping bugs on them.
+	- If a player comes into contact with a bug, they're homework is ruined! They get a red!
+	- Winners get a green.
+
+Board entity:
+
+	- Board is 9 x 9:
+
+		Board: [['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			['x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'],
+			]
+
+		Player: symbol
+
+		export type symbol = p1 | p2 | p3 | p4
+
+
+Player entity:
+
+	- { playerIsDead: false }
+
+Bug entity:
+
+	- Renders a bug in a Board square.
+	- Bug executes after delay (setTimeout(2000))
+	- When bug executes, spreads vertically and horizontally by 2 sqaures in each direction.
+	- If a player is in a square that is affected by bug execution, setState { playerIsDead: true }
+	- After bug execution, bug needs to be removed from board and bugged squares are debugged (state resets in these squares)
+
+
+Rules
+
+    - Bombs will explode in 3 seconds
+    - When a bomb explodes it clears its tile and 1 tile up, down, 	 left, right
+    - Bombs that are about to go off explode at the same time
+    - There are no chain reactions
+    - If a bomb explodes next to another that is not about to go off 	   then the nearby bomb is just cleared
+
+
