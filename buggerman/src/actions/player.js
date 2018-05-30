@@ -3,33 +3,53 @@ export const PLAYER_MOVE = 'PLAYER_MOVE'
 
 const rand = () => Math.floor(Math.random() * 10)
 
-export const move = (dir) => (dispatch, getState) => {
+export const move = dir => (dispatch, getState) => {
   const state = getState()
   const prevPosX = state.player.posX
   const prevPosY = state.player.posY
   let nextPosX, nextPosY
   console.log(dir)
   switch (dir) {
-  // w - up
-  case 119:
-    nextPosX = prevPosX-1
-    nextPosY = prevPosY
-    break
+    // w - up
+    case 119:
+      if (prevPosX === 0) {
+        nextPosX = prevPosX
+        nextPosY = prevPosY
+      } else {
+        nextPosX = prevPosX - 1
+        nextPosY = prevPosY
+      }
+      break
     // s - down
-  case 115:
-    nextPosX = prevPosX+1
-    nextPosY = prevPosY
-    break
+    case 115:
+      if (prevPosX === 9) {
+        nextPosX = prevPosX
+        nextPosY = prevPosY
+      } else {
+        nextPosX = prevPosX + 1
+        nextPosY = prevPosY
+      }
+      break
     //a - left
-  case 97:
-    nextPosX = prevPosX
-    nextPosY = prevPosY-1
-    break
+    case 97:
+      if (prevPosY === 0) {
+        nextPosX = prevPosX
+        nextPosY = prevPosY
+      } else {
+        nextPosX = prevPosX
+        nextPosY = prevPosY - 1
+      }
+      break
     // d - right
-  case 100:
-    nextPosX = prevPosX
-    nextPosY = prevPosY+1
-    break
+    case 100:
+      if (prevPosY === 9) {
+        nextPosX = prevPosX
+        nextPosY = prevPosY
+      } else {
+        nextPosX = prevPosX
+        nextPosY = prevPosY + 1
+      }
+      break
   }
   dispatch({
     type: PLAYER_MOVE,
@@ -38,11 +58,9 @@ export const move = (dir) => (dispatch, getState) => {
       prevPosY,
       nextPosX,
       nextPosY,
-      symbol: state.player.symbol
-    }
+      symbol: state.player.symbol,
+    },
   })
-  
-
 }
 
 export const renderPlayer = () => (dispatch, getState) => {
@@ -52,7 +70,7 @@ export const renderPlayer = () => (dispatch, getState) => {
     payload: {
       posX: rand(),
       posY: rand(),
-      symbol: state.player.symbol
-    }
+      symbol: state.player.symbol,
+    },
   })
 }
