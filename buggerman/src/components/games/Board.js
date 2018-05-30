@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import { connect } from 'react-redux'
 import Tile from './Tile'
-import { renderPlayer, move } from '../actions/player'
+import { renderPlayer, move } from '../../actions/player'
 
 class Board extends PureComponent {
 
